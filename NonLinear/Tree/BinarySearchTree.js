@@ -105,27 +105,55 @@ class BinarySearchTree {
         }
     }
 
+    delete(val) {
+        this.root = this.#deleteNode(this.root, val)
+    }
+
+    #deleteNode(root, val) {
+        if (root === null) {
+            return null;
+        }
+        if (val < root.value) {
+            root.left = this.#deleteNode(root.left, val);
+        } else if (val > root.value) {
+            root.right = this.#deleteNode(root.right, val);
+        } else {
+            if (!root.left && !root.right) {
+                return null;
+            }
+            if (!root.left) {
+                return root.right;
+            } else if (!root.right) {
+                console.log('hello');
+                return root.left;
+            }
+            root.value = this.#min(root.right);
+            root.right = this.#deleteNode(root.right, root.value);
+        }
+        return root;
+    }
+
     Max() {
         return this.#max(this.root);
     }
 
-    #max(root){
-        if(root.right){
+    #max(root) {
+        if (root.right) {
             this.#max(root.right);
         } else {
-            console.log(root.value);
+            return root.value;
         }
     }
 
-    Min(){
+    Min() {
         return this.#min(this.root);
     }
 
-    #min(root){
-        if(root.left){
+    #min(root) {
+        if (root.left) {
             this.#min(root.left);
         } else {
-            console.log(root.value);
+            return root.value;
         }
     }
 
@@ -135,16 +163,17 @@ class BinarySearchTree {
 }
 
 const BST = new BinarySearchTree();
-console.log('Tree is Empty ? ', BST.isEmpty());
+// console.log('Tree is Empty ? ', BST.isEmpty());
 BST.insert(10);
 BST.insert(5);
 BST.insert(15);
 BST.insert(3);
-BST.insert(7);
-console.log(BST.search(5));
-BST.preOrder();
-BST.inOrder();
-BST.postOrder();
+// BST.insert(7);
+// console.log(BST.search(5));
+// BST.preOrder();
+// BST.inOrder();
+// BST.postOrder();
+BST.delete(10);
 BST.breathFirstSearch();
-BST.Max();
-BST.Min();
+// BST.Max();
+// BST.Min();

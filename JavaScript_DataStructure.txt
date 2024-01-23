@@ -1,0 +1,22 @@
+There are four built-in data structures in JavaScript:
+1) Arrays
+2) Objects
+3) Sets
+4) Maps
+
+Arrays : iterable, zero-indexed, ordered, methods - (push, pop, unshift, shift, slice, splice, forEach, map, filter, reduce)
+Objects: Key-Value pair, non-iterable, unordered, methods - (delete,Object.keys(), Object.values(), Object.entries())
+Sets : iterable, ordered, non-duplicate values, methods - (add, delete, has, size)
+Maps: iterable, Key-Value pair, ordered, methods - (set, delete, has, size)
+
+Custom Data structures in JavaScript: 
+
+1) Stack
+2) Queue
+3) Linked List
+4) HashTable
+5) Tree
+6) Graph
+
+Stack : Last In First Out (LIFO) methods - (push, pop);
+Queue : First In First Out (FIFO) methods - (Enqueue, Dequeue)
